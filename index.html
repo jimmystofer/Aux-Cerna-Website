@@ -5,9 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aux Cerna</title>
 <meta name="description" content="Aux Cerna — a neoclassical trio.">
+<meta name="theme-color" content="#0e0d0c">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aux Cerna">
+<meta property="og:description" content="Aux Cerna is a Los Angeles trio composing at the intersection of classical and electronic music — restrained, patient pieces built from piano, strings, and space.">
+<meta property="og:image" content="https://auxcerna.com/band-photo.jpg">
+<meta property="og:url" content="https://auxcerna.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aux Cerna">
+<meta name="twitter:description" content="Aux Cerna is a Los Angeles trio composing at the intersection of classical and electronic music.">
+<meta name="twitter:image" content="https://auxcerna.com/band-photo.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0e0d0c;
@@ -32,8 +49,8 @@
   }
 
   .display {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
+    font-family: 'Lora', serif;
+    font-weight: 400;
   }
 
   a { color: inherit; }
@@ -61,8 +78,6 @@
   }
 
   .hero-name {
-    font-family: 'Lora', serif;
-    font-weight: 400;
     text-transform: uppercase;
     font-size: clamp(2.6rem, 10vw, 5.6rem);
     letter-spacing: 0.12em;
@@ -86,8 +101,23 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  .scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted);
+    opacity: 0;
+    animation: rise 1.4s ease-out 0.9s forwards, bob 2.4s ease-in-out 2.3s infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(7px); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .hero-name, .hero-tag { animation: none; opacity: 1; }
+    .hero-name, .hero-tag, .scroll-cue { animation: none; opacity: 1; }
     html { scroll-behavior: auto; }
   }
 
@@ -98,6 +128,8 @@
   }
 
   .section-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     font-size: 0.8rem;
     letter-spacing: 0.06em;
     color: var(--brass);
@@ -116,7 +148,7 @@
   .release {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 20px;
     padding: 22px 0;
     border-bottom: 1px solid var(--line);
@@ -132,15 +164,14 @@
   }
 
   .release-art {
-    width: 76px;
-    height: 76px;
+    width: clamp(64px, 18vw, 96px);
+    height: clamp(64px, 18vw, 96px);
     object-fit: cover;
     flex-shrink: 0;
     display: block;
   }
 
   .release-title {
-    font-family: 'Cormorant Garamond', serif;
     font-size: 1.6rem;
     font-weight: 400;
   }
@@ -151,11 +182,20 @@
     white-space: nowrap;
   }
 
+  .release-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
   .release-link {
     font-size: 0.85rem;
     color: var(--brass);
     text-decoration: none;
     border-bottom: 1px solid transparent;
+    white-space: nowrap;
   }
 
   .release-link:hover { border-bottom-color: var(--brass); }
@@ -195,45 +235,57 @@
   <div class="hero">
     <h1 class="hero-name display">Aux Cerna</h1>
     <p class="hero-tag">NEOCLASSICAL TRIO</p>
+    <svg class="scroll-cue" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M4 7L10 13L16 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
 
   <div class="wrap">
 
     <section class="about">
-      <p class="section-label">About</p>
+      <h2 class="section-label">About</h2>
       <p>Aux Cerna is a trio composing at the intersection of classical and electronic music — consisting of Jimmy Stofer (synths, bass, piano), Peter Jacobson (cello), and Thomas Lea (viola, violin). The music is built from piano, strings, and space — restrained, patient pieces designed to be listened to closely rather than passed over.</p>
       <p>Based in Los Angeles, the group has released their album <em>Textures</em> (2022) and forthcoming album <em>Botanical Studies</em> (2026).</p>
     </section>
 
     <section class="music" id="music">
-      <p class="section-label">Music</p>
+      <h2 class="section-label">Music</h2>
 
-      <!-- Add/edit releases here. Duplicate a .release block for each new release. -->
+      <!-- Add/edit releases here. Duplicate a .release block for each new release.
+           Each release can list one or more platform links inside .release-links —
+           add a Bandcamp/Apple Music line as soon as a real per-track URL exists for it. -->
       <div class="release">
         <div class="release-info">
           <img class="release-art" src="botanical-studies.jpg" alt="Botanical Studies artwork">
           <span class="release-title display">Botanical Studies <span class="release-meta">(2026)</span></span>
         </div>
-        <a class="release-link" href="https://open.spotify.com/album/3wYkgHfvWpNKZhNahwwddo" target="_blank" rel="noopener">Listen →</a>
+        <div class="release-links">
+          <a class="release-link" href="https://open.spotify.com/album/3wYkgHfvWpNKZhNahwwddo" target="_blank" rel="noopener">Spotify →</a>
+        </div>
       </div>
       <div class="release">
         <div class="release-info">
           <img class="release-art" src="pause.jpg" alt="Pause artwork">
           <span class="release-title display">Pause <span class="release-meta">(2026)</span></span>
         </div>
-        <a class="release-link" href="https://open.spotify.com/album/1iuiKORg9jwrJ4Gp4fHqjF" target="_blank" rel="noopener">Listen →</a>
+        <div class="release-links">
+          <a class="release-link" href="https://open.spotify.com/album/1iuiKORg9jwrJ4Gp4fHqjF" target="_blank" rel="noopener">Spotify →</a>
+        </div>
       </div>
       <div class="release">
         <div class="release-info">
           <img class="release-art" src="textures.jpg" alt="Textures album artwork">
           <span class="release-title display">Textures <span class="release-meta">(album, 2022)</span></span>
         </div>
-        <a class="release-link" href="https://open.spotify.com/album/2lFALhYDzMki82rYKlX7jL" target="_blank" rel="noopener">Listen →</a>
+        <div class="release-links">
+          <a class="release-link" href="https://open.spotify.com/album/2lFALhYDzMki82rYKlX7jL" target="_blank" rel="noopener">Spotify →</a>
+          <a class="release-link" href="https://auxcerna.bandcamp.com/album/textures" target="_blank" rel="noopener">Bandcamp →</a>
+        </div>
       </div>
     </section>
 
     <section class="connect">
-      <p class="section-label">Connect</p>
+      <h2 class="section-label">Connect</h2>
       <ul class="connect-list">
         <!-- Replace the # hrefs below with your real links -->
         <li><a href="https://open.spotify.com/artist/76lX0Ko3q1aNUKHx88o6l2" target="_blank" rel="noopener">Spotify</a></li>
