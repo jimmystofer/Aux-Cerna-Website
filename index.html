@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aux Cerna</title>
+<meta name="description" content="Aux Cerna — a neoclassical trio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0d0c;
+    --ink: #ede8df;
+    --muted: #8c8577;
+    --line: #2a2724;
+    --brass: #b08d57;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 28px;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 12vw, 6.5rem);
+    letter-spacing: 0.02em;
+    margin: 0;
+    opacity: 0;
+    animation: rise 1.4s ease-out 0.2s forwards;
+  }
+
+  .hero-tag {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    opacity: 0;
+    animation: rise 1.4s ease-out 0.5s forwards;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-name, .hero-tag { animation: none; opacity: 1; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Sections */
+  section {
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--brass);
+    margin: 0 0 28px;
+  }
+
+  .about p {
+    font-size: 1.15rem;
+    max-width: 46ch;
+    color: var(--ink);
+  }
+
+  .about p + p { margin-top: 1.2em; }
+
+  /* Releases */
+  .release {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .release:first-of-type { border-top: 1px solid var(--line); }
+
+  .release-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  .release-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .release-link {
+    font-size: 0.85rem;
+    color: var(--brass);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .release-link:hover { border-bottom-color: var(--brass); }
+
+  /* Connect */
+  .connect-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .connect-list a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  .connect-list a:hover { border-bottom-color: var(--brass); }
+
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 class="hero-name display">Aux Cerna</h1>
+    <p class="hero-tag">NEOCLASSICAL TRIO</p>
+  </div>
+
+  <div class="wrap">
+
+    <section class="about">
+      <p class="section-label">About</p>
+      <!-- Replace this bio with your own words — who's in the trio, what instruments, where you're based, what the music is trying to do. -->
+      <p>Aux Cerna is a trio working at the quiet edge of classical and electronic music — piano, strings, and space, built into pieces meant to be sat with rather than skipped through.</p>
+      <p>Based in Los Angeles. New music arriving through 2026 and beyond.</p>
+    </section>
+
+    <section class="music" id="music">
+      <p class="section-label">Music</p>
+
+      <!-- Add/edit releases here. Duplicate a .release block for each new single. -->
+      <div class="release">
+        <span class="release-title display">Single III</span>
+        <span class="release-meta">September 21, 2026</span>
+      </div>
+      <div class="release">
+        <span class="release-title display">Single II</span>
+        <a class="release-link" href="#" target="_blank" rel="noopener">Listen →</a>
+      </div>
+      <div class="release">
+        <span class="release-title display">Single I</span>
+        <a class="release-link" href="#" target="_blank" rel="noopener">Listen →</a>
+      </div>
+    </section>
+
+    <section class="connect">
+      <p class="section-label">Connect</p>
+      <ul class="connect-list">
+        <!-- Replace the # hrefs below with your real links -->
+        <li><a href="#" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:hello@auxcerna.com">hello@auxcerna.com</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>&copy; 2026 Aux Cerna</footer>
+
+</body>
+</html>
